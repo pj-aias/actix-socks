@@ -1,0 +1,23 @@
+[package]
+name = "actix-socks"
+version = "0.1.0"
+authors = ["Aiden McClelland <me@drbonez.dev>"]
+edition = "2018"
+description = "A connector for actix-client that adds support for SOCKSv5 proxies."
+license = "MIT"
+repository = "https://github.com/DR-BoneZ/actix-socks"
+documentation = "http://docs.rs/actix-socks"
+readme = "README.md"
+keywords = ["actix", "client", "socks", "socks5", "socksv5"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-connect = "1.0.2"
+actix-http = "1.0.1"
+actix-service = "1.0.5"
+tokio-socks = "0.2.2"
+
+[dev-dependencies]
+actix-web = "2.0.0"
+actix-rt = "1.1.1"
