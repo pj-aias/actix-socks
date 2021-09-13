@@ -69,11 +69,16 @@ mod test {
                     .finish(),
             )
             .finish();
-        let res = client
-            .get("http://facebookcorewwwi.onion")
+        let mut res = client
+            .get("http://igxf3reqx3hfwfxdvczxkx474iukh6okpwaffro366vh7ijk22cwuzyd.onion")
             .send()
             .await
-            .unwrap();
-        println!("{:?}", res);
+            .expect("request error");
+
+        let body = res.body().await.expect("parse error");
+
+        let body = String::from_utf8_lossy(&body);
+        eprintln!("body: '{}'", body);
+        assert_eq!(res.status(), 200);
     }
 }
