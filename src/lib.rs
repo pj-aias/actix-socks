@@ -33,6 +33,12 @@ async fn connect_socks<P: ToProxyAddrs + 'static>(
 #[derive(Clone, Debug)]
 pub struct SocksConnector<P: ToProxyAddrs>(P);
 
+impl<P: ToProxyAddrs> SocksConnector<P> {
+    pub fn new(proxy: P) -> Self {
+        SocksConnector(proxy)
+    }
+}
+
 impl<P> Service for SocksConnector<P>
 where
     P: ToProxyAddrs + Copy + 'static,
